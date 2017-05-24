@@ -9,33 +9,35 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.4.1/css/bulma.min.css">
 </head>
 <body>
-<nav class="nav has-shadow" id="top">
-    <div class="container">
-        <div class="nav-left">
-            <a class="nav-item" href="/">
-                TimonLukas.me
-            </a>
-        </div>
-        <span class="nav-toggle">
+<div id="app">
+    <nav class="nav has-shadow" id="top">
+        <div class="container">
+            <div class="nav-left">
+                <a class="nav-item" href="/">
+                    TimonLukas.me
+                </a>
+            </div>
+            <span class="nav-toggle">
             <span></span>
             <span></span>
             <span></span>
         </span>
-        <div class="nav-right nav-menu">
-            <a class="nav-item is-tab is-active">
-                Über mich
-            </a>
-            <a class="nav-item is-tab">
-                Vorlesungen
-            </a>
+            <div class="nav-right nav-menu">
+                <router-link class="nav-item is-tab" exact active-class="is-active" to="/">
+                    Home
+                </router-link>
+                <router-link class="nav-item is-tab" active-class="is-active" to="/vorlesungen">
+                    Vorlesungen
+                </router-link>
+            </div>
         </div>
-    </div>
-</nav>
-<section class="section">
-    <div class="container content" id="app">
-        <router-view></router-view>
-    </div>
-</section>
+    </nav>
+    <section class="section">
+        <div class="container content">
+            <router-view></router-view>
+        </div>
+    </section>
+</div>
 <script src="/app.js"></script>
 </body>
 </html>
