@@ -26,7 +26,7 @@ const router = new VueRouter({
 
 sync(store, router);
 
-Vue({
+new Vue({ // eslint-disable-line
   el: '#app',
   store,
   router
