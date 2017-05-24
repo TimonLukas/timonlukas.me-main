@@ -6,9 +6,16 @@
   "repository": "https://github.com/TimonLukas/timonlukas.me-main.git",
   "author": "Timon Lukas <timon.lukas3@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development webpack --progress --hide-modules",
+    "watch": "cross-env NODE_ENV=development webpack --watch --progress --hide-modules",
+    "hot": "cross-env NODE_ENV=development webpack-dev-server --inline --hot",
+    "production": "cross-env NODE_ENV=production webpack --progress --hide-modules"
+  },
   "dependencies": {
     "body-parser": "^1.17.2",
-    "express": "^4.15.3"
+    "express": "^4.15.3",
+    "laravel-mix": "^0.12.0"
   },
   "devDependencies": {
     "semistandard": "^11.0.0"

@@ -9,8 +9,7 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 
 app.use((request, response) => {
-  console.log(JSON.stringify(request.body, null, 2));
-  response.end();
+
 });
 
 app.listen(port, () => {
