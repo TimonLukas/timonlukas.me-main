@@ -1,5 +1,11 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
+import VueRouter from 'vue-router';
+import { sync } from 'vue-router-sync';
+
+import {
+  Home
+} from './components';
 
 Vue.use(Vuex);
 
@@ -8,7 +14,19 @@ const store = new Vuex.Store({
   mutations: {}
 });
 
+const router = new VueRouter({
+  routes: [
+    {
+      path: '/',
+      component: Home
+    }
+  ]
+});
+
+sync(store, router);
+
 Vue({
   el: '#app',
-  store
+  store,
+  router
 });
