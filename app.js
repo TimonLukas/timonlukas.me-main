@@ -8,8 +8,10 @@ const app = express();
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 
-app.use((request, response) => {
+app.use(express.static('public'));
 
+app.use((request, response) => {
+  response.sendFile('public/index.html');
 });
 
 app.listen(port, () => {
