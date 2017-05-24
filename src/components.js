@@ -1,5 +1,5 @@
 import Home from './components/Home.vue';
 
-export default {
+export {
   Home
 };
