@@ -3,17 +3,11 @@
   "version": "1.0.0",
   "description": "Main module for my website",
   "main": "app.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/TimonLukas/timonlukas.me-main.git"
-  },
+  "repository": "https://github.com/TimonLukas/timonlukas.me-main.git",
   "author": "Timon Lukas <timon.lukas3@gmail.com>",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/TimonLukas/timonlukas.me-main/issues"
-  },
-  "homepage": "https://github.com/TimonLukas/timonlukas.me-main#readme"
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.3"
+  }
 }
