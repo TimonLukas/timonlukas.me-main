@@ -1,15 +1,17 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 import VueRouter from 'vue-router';
+import VueAsyncComputed from 'vue-async-computed';
 import { sync } from 'vuex-router-sync';
 
 import {
   Home,
-  Filebrowser
+  Notes
 } from './components';
 
 Vue.use(Vuex);
 Vue.use(VueRouter);
+Vue.use(VueAsyncComputed);
 
 const store = new Vuex.Store({
   state: {},
@@ -25,7 +27,7 @@ const router = new VueRouter({
     },
     {
       path: '/vorlesungen',
-      component: Filebrowser
+      component: Notes
     }
   ]
 });

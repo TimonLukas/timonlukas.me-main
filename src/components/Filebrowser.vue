@@ -1,26 +1,26 @@
 <template>
-    <div>
-        <div class="box" v-show="showBreadcrumbs">
-            <breadcrumbs></breadcrumbs>
-        </div>
-        <div class="box">
-            <spinner></spinner>
-        </div>
+    <div class="box">
+        <spinner v-show="showSpinner"></spinner>
     </div>
 </template>
 
 <script>
-  import Breadcrumbs from './Breadcrumbs.vue';
+  import axios from 'axios';
+
   import Spinner from './Spinner.vue';
 
   export default {
     components: {
-      'breadcrumbs': Breadcrumbs,
       'spinner': Spinner
     },
     computed: {
-      showBreadcrumbs () {
-        return location.pathname !== '/vorlesungen';
+      showSpinner () {
+        return typeof this.items === "undefined";
+      }
+    },
+    asyncComputed: {
+      items() {
+
       }
     }
   }

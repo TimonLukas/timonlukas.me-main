@@ -1,7 +1,7 @@
 import Home from './components/Home.vue';
-import Filebrowser from './components/Filebrowser.vue';
+import Notes from './components/Notes.vue';
 
 export {
   Home,
-  Filebrowser
+  Notes
 };
