@@ -4,7 +4,8 @@ import VueRouter from 'vue-router';
 import { sync } from 'vuex-router-sync';
 
 import {
-  Home
+  Home,
+  Filebrowser
 } from './components';
 
 Vue.use(Vuex);
@@ -21,6 +22,10 @@ const router = new VueRouter({
     {
       path: '/',
       component: Home
+    },
+    {
+      path: '/vorlesungen',
+      component: Filebrowser
     }
   ]
 });
