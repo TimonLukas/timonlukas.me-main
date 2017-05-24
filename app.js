@@ -9,6 +9,7 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 
 app.use(express.static('public'));
+app.use(express.static('public/favicon'));
 
 app.use((request, response) => {
   response.sendFile(`${__dirname}/public/index.html`);
