@@ -11,7 +11,7 @@ app.use(bodyParser.json());
 app.use(express.static('public'));
 
 app.use((request, response) => {
-  response.sendFile('public/index.html');
+  response.sendFile(`${__dirname}/public/index.html`);
 });
 
 app.listen(port, () => {
