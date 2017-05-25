@@ -58,7 +58,7 @@ new Vue({ // eslint-disable-line
       const newModal = document.querySelector('#newModal');
       document.addEventListener('click', (event) => {
         if (newModal.classList.contains('is-active')) {
-          if (event.target !== document.querySelector('#newModal .box')) {
+          if (event.target !== document.querySelector('#newModal .box') && !event.target.classList.contains('nav-item')) {
             newModal.classList.remove('is-active');
           }
         }
