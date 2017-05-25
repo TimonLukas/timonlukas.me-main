@@ -26,7 +26,7 @@ const router = new VueRouter({
       component: Home
     },
     {
-      path: '/Vorlesungen/',
+      path: '/Vorlesungen*',
       component: Notes
     }
   ]
@@ -47,3 +47,12 @@ new Vue({ // eslint-disable-line
     });
   }
 });
+
+const escapeRegExp = (str) => {
+  return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+};
+
+String.prototype.replaceAll = (search, replacement) => {
+  const target = this;
+  return target.replace(new RegExp(escapeRegExp(search), 'g'), replacement);
+};

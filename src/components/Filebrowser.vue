@@ -3,7 +3,7 @@
         <spinner v-show="showSpinner"></spinner>
         <ul id="content" v-show="!showSpinner">
             <li v-for="item in items">
-                <a :href="item.name">
+                <a :href="item.url">
                     <i class="fa" :class="item.icon"></i>
                     {{ item.name }}
                 </a>
@@ -58,6 +58,7 @@
 
               return {
                 name: entry.name,
+                url: entry.type === "file" ? entry.name : entry.name + "/",
                 icon: "fa-" + getIconFromExtension(extension)
               }
             });
@@ -72,9 +73,8 @@
 
 <style>
     #filebrowser ul {
-        margin-top: 0;
-        margin-left: 0;
         list-style-type: none;
+        margin-top: 0;
     }
 
     #filebrowser ul li:not(:last-child) {

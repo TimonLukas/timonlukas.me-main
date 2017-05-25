@@ -9,17 +9,42 @@
 </template>
 
 <script>
+    const getUrlForElement = (parts, index, lastElementIsDirectory) => {
+      const prefix = "/";
+      const suffix = index === parts.length - 1 && !lastElementIsDirectory ? "" : "/";
+      return prefix + parts.slice(0, index + 1).join("/") + suffix;
+    };
+
+    const getElementsFromPathString = (pathString) => {
+        if(pathString === "") {
+          return [];
+        }
+
+        const parts = pathString.split("/").slice(1); // Remove unneeded preceding empty array entry
+        const lastPartIsDirectory = parts[parts.length - 1] === "";
+        if(lastPartIsDirectory) {
+          parts.splice(-1); // Remove unneeded empty trailing array entry
+        }
+
+        return parts.map((part, index) => {
+          return {
+            title: part,
+            url: getUrlForElement(parts, index, lastPartIsDirectory)
+          };
+        });
+    };
+
     export default {
       computed: {
         breadcrumbs () {
-          const elements = [
+          const pathStringElements = getElementsFromPathString(decodeURIComponent(location.pathname));
+
+          return [
             {
               url: "https://github.com/TimonLukas/Vorlesungen",
               title: "TimonLukas/Vorlesungen@Github"
             }
-          ];
-
-          return elements;
+          ].concat(pathStringElements);
         }
       }
     }
