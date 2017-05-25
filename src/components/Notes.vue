@@ -22,6 +22,12 @@
         const path = location.pathname;
         return path.substring(path.length - 1) === "/";
       }
+    },
+    created () {
+      if(localStorage.getItem('wasHere') === null) {
+        localStorage.setItem('wasHere', true);
+        document.querySelector("#newModal").classList.add("is-active");
+      }
     }
   }
 </script>

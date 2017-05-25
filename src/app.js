@@ -39,12 +39,31 @@ new Vue({ // eslint-disable-line
   store,
   router,
   mounted () {
-    const burger = document.querySelector('.nav-toggle');
-    const menu = document.querySelector('.nav-menu');
-    burger.addEventListener('click', () => {
-      burger.classList.toggle('is-active');
-      menu.classList.toggle('is-active');
-    });
+    (() => {
+      const burger = document.querySelector('.nav-toggle');
+      const menu = document.querySelector('.nav-menu');
+      [].forEach.call(menu.children, child => {
+        child.addEventListener('click', () => {
+          burger.classList.remove('is-active');
+          menu.classList.remove('is-active');
+        });
+      });
+      burger.addEventListener('click', () => {
+        burger.classList.toggle('is-active');
+        menu.classList.toggle('is-active');
+      });
+    })();
+
+    (() => {
+      const newModal = document.querySelector('#newModal');
+      document.addEventListener('click', (event) => {
+        if (newModal.classList.contains('is-active')) {
+          if (event.target !== document.querySelector('#newModal .box')) {
+            newModal.classList.remove('is-active');
+          }
+        }
+      });
+    })();
   }
 });
 

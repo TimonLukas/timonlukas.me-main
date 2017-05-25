@@ -9,14 +9,6 @@
   import axios from 'axios';
   import Spinner from './Spinner.vue';
 
-  (() => {
-    const parts = location.pathname.split("/");
-    const lastPart = parts[parts.length - 1];
-    const realFileName = decodeURIComponent(lastPart);
-
-    document.title = `${realFileName} - TimonLukas.me`;
-  })();
-
   const replaceCommentsWithToc = (content) => {
     if(content.indexOf("<!--") !== -1) {
       const startTagStart = content.indexOf("<!--");
@@ -38,6 +30,14 @@
     },
     watch: {
       content () {
+        (() => {
+          const parts = location.pathname.split("/");
+          const lastPart = parts[parts.length - 1];
+          const realFileName = decodeURIComponent(lastPart);
+
+          document.title = `${realFileName} - TimonLukas.me`;
+        })();
+
         const processMarkdown = () => {
           const r = new Remarkable({
             html: true
