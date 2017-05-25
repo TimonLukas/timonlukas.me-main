@@ -35,7 +35,8 @@
                 inlineMath: [
                     ["$", "$"]
                 ]
-            }
+            },
+            delayStartupUntil: "configured"
         });
     </script>
 
@@ -112,7 +113,6 @@
     if(message === "End Typeset") {
       const event = new Event("mathjax");
       window.dispatchEvent(event);
-      window.mathjaxHasLoaded = true;
     }
   });
 </script>

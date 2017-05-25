@@ -10,7 +10,7 @@
   import Spinner from './Spinner.vue';
 
   const replaceCommentsWithToc = (content) => {
-    if(content.indexOf("<!--") !== -1) {
+    if (content.indexOf("<!--") !== -1) {
       const startTagStart = content.indexOf("<!--");
       const startTagEnd = content.indexOf("-->") + "-->".length;
 
@@ -65,7 +65,7 @@
               .replaceAll(")", "")
               .replaceAll("=", "-");
 
-            if(typeof occurences[processed] !== "undefined") {
+            if (typeof occurences[processed] !== "undefined") {
               processed += "-" + occurences[processed]++;
             } else {
               occurences[processed] = 1;
@@ -77,13 +77,11 @@
           this.isDocumentReady = true;
         };
 
-        if(window.mathjaxHasLoaded !== true) {
-          window.addEventListener("mathjax", () => {
-            processMarkdown();
-          });
-        } else {
+        window.addEventListener("mathjax", () => {
           processMarkdown();
-        }
+        });
+
+        MathJax.Hub.Configured();
       }
     },
     data () {
