@@ -52,7 +52,6 @@ const escapeRegExp = (str) => {
   return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 };
 
-String.prototype.replaceAll = (search, replacement) => {
-  const target = this;
-  return target.replace(new RegExp(escapeRegExp(search), 'g'), replacement);
+String.prototype.replaceAll = function(search, replacement) {
+  return this.replace(new RegExp(escapeRegExp(search), 'g'), replacement);
 };
