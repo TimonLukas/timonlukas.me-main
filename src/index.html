@@ -93,7 +93,6 @@
 </script>
 <script>
   MathJax.Hub.Startup.signal.Interest(message => {
-    console.log(message);
     if(message === "End Typeset") {
       const event = new Event("mathjax");
       window.dispatchEvent(event);
