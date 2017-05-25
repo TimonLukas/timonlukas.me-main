@@ -43,7 +43,7 @@
     },
     asyncComputed: {
       items() {
-        const basePath = "http://api.github.com/repos/TimonLukas/Vorlesungen/contents";
+        const basePath = "https://api.github.com/repos/TimonLukas/Vorlesungen/contents";
         const additionalPath = location.pathname.replace("/Vorlesungen/", "");
         const path = basePath + additionalPath;
 
