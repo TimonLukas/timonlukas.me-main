@@ -26,7 +26,7 @@ const router = new VueRouter({
       component: Home
     },
     {
-      path: '/vorlesungen',
+      path: '/Vorlesungen/',
       component: Notes
     }
   ]

@@ -1,9 +1,9 @@
 <template>
-    <div class="box level">
+    <div class="box level" id="breadcrumbs">
         <div class="level-left">
-            <span class="level-item"><a href="https://github.com/TimonLukas/Vorlesungen">TimonLukas/Vorlesungen@Github</a></span>
-            <span class="level-item">&gt;</span>
-            <span class="level-item">asdasd</span>
+            <span class="level-item" v-for="element in breadcrumbs">
+                <a :href="element.url">{{ element.title }}</a>
+            </span>
         </div>
     </div>
 </template>
@@ -12,12 +12,22 @@
     export default {
       computed: {
         breadcrumbs () {
-          console.log(location);
+          const elements = [
+            {
+              url: "https://github.com/TimonLukas/Vorlesungen",
+              title: "TimonLukas/Vorlesungen@Github"
+            }
+          ];
+
+          return elements;
         }
       }
     }
 </script>
 
 <style>
-
+    #breadcrumbs span.level-item:not(:last-child)::after {
+        content: ">";
+        margin-left: .75rem;
+    }
 </style>
