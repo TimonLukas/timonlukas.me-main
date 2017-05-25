@@ -1,8 +1,24 @@
-.footer {
-    background-color: white;
-    padding: 0;
+
+#app footer {
+    background-color: #00d1b2;
+    margin-top: 2em;
 }
 
-.footer i {
-    color: #00d1b2;
+#app footer p, #app footer i, #app footer a {
+    color: white;
+}
+
+#app footer a {
+    font-weight: bold;
+}
+
+#app > section {
+    padding-top: 2em;
+    background-color: transparent;
+}
+
+body {
+    background: url(/images/background.png);
+    height: 100%;
+    min-height: 100vh;
 }

@@ -51,6 +51,10 @@
 </script>
 
 <style>
+    #breadcrumbs {
+        background-color: rgb(242, 253, 251);
+    }
+
     #breadcrumbs span.level-item:not(:last-child)::after {
         content: ">";
         margin-left: .75rem;
