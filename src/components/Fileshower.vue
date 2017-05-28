@@ -24,6 +24,15 @@
     return content;
   };
 
+  const slugify = (text) => {
+    return text.toString().toLowerCase()
+      .replace(/\s+/g, '-')           // Replace spaces with -
+      .replace(/[^\w\-]+/g, '')       // Remove all non-word chars
+      .replace(/--+/g, '-')         // Replace multiple - with single -
+      .replace(/^-+/, '')             // Trim - from start of text
+      .replace(/-+$/, '');            // Trim - from end of text
+  };
+
   export default {
     components: {
       "spinner": Spinner
@@ -54,16 +63,7 @@
           const occurences = {};
           headings.forEach(heading => {
             const text = heading.textContent;
-            let processed = text
-              .toLowerCase()
-              .replaceAll(" ", "-")
-              .replaceAll(".", "")
-              .replaceAll(",", "")
-              .replaceAll("'", "")
-              .replaceAll('"', "")
-              .replaceAll("(", "")
-              .replaceAll(")", "")
-              .replaceAll("=", "-");
+            let processed = slugify(text);
 
             if (typeof occurences[processed] !== "undefined") {
               processed += "-" + occurences[processed]++;
