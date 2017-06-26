@@ -98,7 +98,8 @@
       content () {
         const basePath = "https://raw.githubusercontent.com/TimonLukas/Vorlesungen/master/";
         const filePath = location.pathname.replace("/Vorlesungen/", "");
-        const path = basePath + filePath;
+        const cacheBuster = "?" + Date.now().valueOf();
+        const path = basePath + filePath + cacheBuster;
 
         return new Promise((resolve, reject) => {
           axios.get(path).then(result => {
