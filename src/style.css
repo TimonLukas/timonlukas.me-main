@@ -33,9 +33,13 @@ body {
     margin-bottom: .5em;
 }
 
+svg {
+    max-width: 100% !important;
+}
+
 @media screen and (max-width: 680px) {
     #markdown {
-        padding: 0!important;
+        padding: 0 !important;
     }
 
     #markdown svg {
